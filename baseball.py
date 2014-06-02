@@ -8,8 +8,8 @@ import json
 
 def team_score(t):
 	if t == 'scores':
-			print '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
-				game['home_team_name'], game['home_team_runs'], game['venue'])
+		print '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
+			game['home_team_name'], game['home_team_runs'], game['venue'])
 	elif (game['home_file_code']) == team or (game['away_code']) == t:
 			team_scores = '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
 			game['home_team_name'], game['home_team_runs'], game['venue'])
