@@ -7,30 +7,34 @@ import json
 # If a team abbreviation is true, it prints the game info only for that game.
 
 def team_score(team):
-    if team == 'scores':
-        print '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
+    team_scores = ""
+    if team == 'SCORES':
+        return '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
                 game['home_team_name'], game['home_team_runs'], game['venue'])
-    elif (game['home_file_code']) == team or (game['away_code']) == team:
-            team_scores = '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
-            game['home_team_name'], game['home_team_runs'], game['venue'])
-            print team_scores
+    elif (game['home_name_abbrev']) == team or (game['away_name_abbrev']) == team:
+            return '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
+                game['home_team_name'], game['home_team_runs'], game['venue'])
+    else:
+        return False
 
 # Procedure checks the same as above, except this is used if the game has not started yet.
 
 def team_pending(team):
-    if team == 'scores':
-        print '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
-    elif (game['home_file_code']) == team or (game['away_code']) == team:
-        team_pending_info = '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
-        print team_pending_info
+    pending_games = ""
+    if team == 'SCORES':
+        return '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
+    elif (game['home_name_abbrev']) == team or (game['away_name_abbrev']) == team:
+        return '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
+    else:
+        return False
 
 # Requests the type of score information from the user.
 
 print "Please enter the name of the team you want scores for.", '\n' \
-        "ex: nyy, sfn, la, etc.", '\n' \
+        "ex: NYY, SFG, LAD, etc.", '\n' \
         "If you just want all the scores, enter scores."
 
-team = raw_input('Which team shall it be?: ')
+team = raw_input('Which team shall it be?: ').upper()
 
 # Captures the current date, and appends it to the base url for the data.
 
@@ -48,6 +52,10 @@ games_array = gameday_data['data']['games']['game']
 
 for game in games_array:
     if 'home_team_runs' in game:
-        team_score(team)
+        disp = team_score(team)
+        if disp:
+            print disp
     else:
-        team_pending(team)
+        disp = team_pending(team)
+        if disp:
+            print disp
