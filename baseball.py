@@ -6,21 +6,21 @@ import json
 # If scores is true, then it prints info for all the games.
 # If a team abbreviation is true, it prints the game info only for that game.
 
-def team_score(t):
-    if t == 'scores':
+def team_score(team):
+    if team == 'scores':
         print '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
                 game['home_team_name'], game['home_team_runs'], game['venue'])
-    elif (game['home_file_code']) == team or (game['away_code']) == t:
+    elif (game['home_file_code']) == team or (game['away_code']) == team:
             team_scores = '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
             game['home_team_name'], game['home_team_runs'], game['venue'])
-        print team_scores
+            print team_scores
 
 # Procedure checks the same as above, except this is used if the game has not started yet.
 
-def team_pending(t):
-    if t == 'scores':
+def team_pending(team):
+    if team == 'scores':
         print '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
-    elif (game['home_file_code']) == team or (game['away_code']) == t:
+    elif (game['home_file_code']) == team or (game['away_code']) == team:
         team_pending_info = '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
         print team_pending_info
 
