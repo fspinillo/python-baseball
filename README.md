@@ -7,4 +7,5 @@ The user will be prompted to entire the abbreviation for whichever team they'd l
 
 ######To-do:
 * include error check
-* switch to using home_name_abbrev and away_name_abbrev
+* include pitcher and batter info for single games
+* build dictionary for team abbreviations
