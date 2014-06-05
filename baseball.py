@@ -7,7 +7,6 @@ import json
 # If a team abbreviation is true, it prints the game info only for that game.
 
 def team_score(team):
-    team_scores = ""
     if team == 'SCORES':
         return '%s (%s) vs %s (%s) @ %s' % (game['away_team_name'], game['away_team_runs'], \
                 game['home_team_name'], game['home_team_runs'], game['venue'])
@@ -20,7 +19,6 @@ def team_score(team):
 # Procedure checks the same as above, except this is used if the game has not started yet.
 
 def team_pending(team):
-    pending_games = ""
     if team == 'SCORES':
         return '%s vs %s @ %s %s' % (game['away_team_name'], game['home_team_name'], game['venue'], game['time'])
     elif (game['home_name_abbrev']) == team or (game['away_name_abbrev']) == team:
