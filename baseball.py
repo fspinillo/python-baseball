@@ -5,29 +5,29 @@ import json
 def game_info():
     if game['status']['status'] == "In Progress":
         return '%s (%s) vs %s (%s) @ %s %s' % (
-	        	game['away_team_name'],
-	        	game['linescore']['r']['away'],
-	        	game['home_team_name'],
-	            game['linescore']['r']['home'],
-	            game['venue'],
-	            game['status']['status']
+                game['away_team_name'],
+                game['linescore']['r']['away'],
+                game['home_team_name'],
+                game['linescore']['r']['home'],
+                game['venue'],
+                game['status']['status']
             )
     elif game['status']['status'] == "Final":
         return '%s (%s) vs %s (%s) @ %s %s' % (
-	        	game['away_team_name'],
-	        	game['linescore']['r']['away'],
-	        	game['home_team_name'],
-	            game['linescore']['r']['home'],
-	            game['venue'],
-	            game['status']['status']
+                game['away_team_name'],
+                game['linescore']['r']['away'],
+                game['home_team_name'],
+                game['linescore']['r']['home'],
+                game['venue'],
+                game['status']['status']
             )
     elif (game['status']['status'] == "Pre-Game" or game['status']['status'] == "Preview"):
         return '%s vs %s @ %s %s %s' % (
-        		game['away_team_name'],
-	        	game['home_team_name'],
-	            game['venue'],
-	            game['time'],
-	            game['status']['status']
+                game['away_team_name'],
+                game['home_team_name'],
+                game['venue'],
+                game['time'],
+                game['status']['status']
             )
 
 def team_score():
@@ -38,19 +38,19 @@ def team_score():
         '%s: %s of the %s\n' \
         'Pitching: %s || Batting: %s || S: %s B: %s O: %s\n' \
         '-------------------------------' % (
-	        	game['away_team_name'],
-	        	game['linescore']['r']['away'],
-	            game['home_team_name'],
-	            game['linescore']['r']['home'],
-	            game['venue'],
-	            game['status']['status'],
-	            game['status']['inning_state'],
-	            game['status']['inning'],
-	            game['pitcher']['last'],
-	            game['batter']['last'],
-	            game['status']['s'],
-	            game['status']['b'],
-	            game['status']['o']
+                game['away_team_name'],
+                game['linescore']['r']['away'],
+                game['home_team_name'],
+                game['linescore']['r']['home'],
+                game['venue'],
+                game['status']['status'],
+                game['status']['inning_state'],
+                game['status']['inning'],
+                game['pitcher']['last'],
+                game['batter']['last'],
+                game['status']['s'],
+                game['status']['b'],
+                game['status']['o']
             )
     elif game['status']['status'] == "Final":
         return \
@@ -58,14 +58,14 @@ def team_score():
         '%s (%s) vs. %s (%s) @ %s\n' \
         'W: %s || L: %s || SV: %s\n' \
         '-------------------------------' % (
-	        	game['away_team_name'],
-	        	game['linescore']['r']['away'],
-	            game['home_team_name'],
-	            game['linescore']['r']['home'],
-	            game['venue'],
-	            game['winning_pitcher']['name_display_roster'],
-	            game['losing_pitcher']['name_display_roster'],
-	            game['save_pitcher']['name_display_roster']
+                game['away_team_name'],
+                game['linescore']['r']['away'],
+                game['home_team_name'],
+                game['linescore']['r']['home'],
+                game['venue'],
+                game['winning_pitcher']['name_display_roster'],
+                game['losing_pitcher']['name_display_roster'],
+                game['save_pitcher']['name_display_roster']
             )
     elif (game['status']['status'] == "Pre-Game" or game['status']['status'] == "Preview"):
         return \
@@ -73,13 +73,13 @@ def team_score():
         '%s vs %s @ %s %s\n' \
         'P: %s || P: %s\n' \
         '-------------------------------' % (
-				game['away_team_name'],
-				game['home_team_name'],
-				game['venue'],
-				game['time'],
-				game['away_probable_pitcher']['name_display_roster'],
-				game['home_probable_pitcher']['name_display_roster']
-           	)
+                game['away_team_name'],
+                game['home_team_name'],
+                game['venue'],
+                game['time'],
+                game['away_probable_pitcher']['name_display_roster'],
+                game['home_probable_pitcher']['name_display_roster']
+               )
 
 def date_url(date):
     if date == "yesterday":
