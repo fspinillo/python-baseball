@@ -1,9 +1,13 @@
 python-baseball
 ===============
 
-This is a simple python script to pull in the current scoreboard for the day from MLB.com. If no score is present it displays the start time for the game.
+This is a simple python script to pull in the scoreboard information for the days games.
 
-The user will be prompted to entire the abbreviation for whichever team they'd like to get scores for, or they can just enter scores to get all the score data.
+When initiated you'll be asked for a team. The abbreviations are based on how they're kept in the data. You can also
+
+just leave it blank for all the games.
+
+'What team do you want? ex. SF or NYY'
 
 ######To-do:
 * include error check
