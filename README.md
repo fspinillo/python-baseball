@@ -7,10 +7,15 @@ python-baseball
 * Datetime
 * JSON
 
-This is a simple python script to pull in the scoreboard information for the days games.
+This is a simple python script to pull in the scoreboard information for either the previous day, or current day
+game data.
 
-When initiated you'll be asked for a team. The abbreviations are based on how they're kept in the data. You can also
-just leave it blank for all the games.
+When initiated you'll first be asked for which day, today or yesterday. 
+
+> Today or yesterday?
+
+Then you'll be asked for a team abbreviation. The abbreviations are based on how they're kept in the data.
+You can also just leave it blank for all the games.
 
 > What team do you want? ex. SF or NYY
 
