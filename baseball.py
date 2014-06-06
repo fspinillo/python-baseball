@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime, timedelta
 import requests
 import json
 
@@ -39,11 +39,20 @@ def team_score():
             game['time'], game['away_probable_pitcher']['name_display_roster'], \
             game['home_probable_pitcher']['name_display_roster'])
 
-now = datetime.datetime.now()
-baseball_url = "http://gd2.mlb.com/components/game/mlb/year_%d/month_%s/day_%s/master_scoreboard.json" \
+def date_url(date):
+    if date == "yesterday":
+        baseball_url = "http://gd2.mlb.com/components/game/mlb/year_%d/month_%s/day_%s/master_scoreboard.json" \
+        % (now.year, now.strftime("%m"), yesterday.strftime("%d"))
+    else:
+        baseball_url = "http://gd2.mlb.com/components/game/mlb/year_%d/month_%s/day_%s/master_scoreboard.json" \
                 % (now.year, now.strftime("%m"), now.strftime("%d"))
+    return baseball_url
 
-baseball_data = requests.get(baseball_url)
+now = datetime.now()
+yesterday = datetime.now() - timedelta(days=1)
+date = raw_input('Today or yesterday? ').lower()
+
+baseball_data = requests.get(date_url(date))
 game_data = baseball_data.json()
 game_array = game_data['data']['games']['game']
 
