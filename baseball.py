@@ -68,3 +68,4 @@ for game in game_array:
             disp = team_score()
             if disp:
                 print disp
+           
