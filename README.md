@@ -4,6 +4,8 @@ python-baseball
 ######Requirements:
 * Python 2.7
 * Requests
+* Datetime
+* JSON
 
 This is a simple python script to pull in the scoreboard information for the days games.
 
