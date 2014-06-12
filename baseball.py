@@ -22,11 +22,12 @@ def game_info():
                 game['status']['status']
             )
     elif (game['status']['status'] == "Pre-Game" or game['status']['status'] == "Preview"):
-        return '%s vs %s @ %s %s %s' % (
+        return '%s vs %s @ %s %s%s %s' % (
                 game['away_team_name'],
                 game['home_team_name'],
                 game['venue'],
-                game['time'],
+                game['home_time'],
+                game['hm_lg_ampm'],
                 game['status']['status']
             )
 
@@ -70,13 +71,14 @@ def team_score():
     elif (game['status']['status'] == "Pre-Game" or game['status']['status'] == "Preview"):
         return \
         '-------------------------------\n' \
-        '%s vs %s @ %s %s\n' \
+        '%s vs %s @ %s %s%s\n' \
         'P: %s || P: %s\n' \
         '-------------------------------' % (
                 game['away_team_name'],
                 game['home_team_name'],
                 game['venue'],
-                game['time'],
+                game['home_time'],
+                game['hm_lg_ampm'],
                 game['away_probable_pitcher']['name_display_roster'],
                 game['home_probable_pitcher']['name_display_roster']
                )
