@@ -37,8 +37,6 @@ You can also just leave it blank for all the games.
 
 ######To-do:
 * Sort the games: In-Progress, Final, Preview/Pre-Game
-* Create alfred.app work flow
-* Ability to pull in previous day game data
 
 ######Contributions:
 * [casschin](https://github.com/casschin)
