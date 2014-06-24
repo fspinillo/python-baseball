@@ -2,6 +2,9 @@ from datetime import datetime, timedelta
 import requests
 import json
 
+#function to determine the status of a game, if no team selected
+#based on the progress, different data is returned
+
 def game_info():
     if game['status']['status'] == "In Progress":
         return '%s (%s) vs %s (%s) @ %s %s' % (
@@ -30,6 +33,9 @@ def game_info():
                 game['hm_lg_ampm'],
                 game['status']['status']
             )
+
+#function to determine the status of a game, if a team is selected
+#based on the progress, different data is returned
 
 def team_score():
     if game['status']['status'] == "In Progress":
@@ -83,6 +89,8 @@ def team_score():
                 game['home_probable_pitcher']['name_display_roster']
                )
 
+#function to determine which feed to grab based on user input
+
 def date_url(date):
     if date == "yesterday":
         baseball_url = "http://gd2.mlb.com/components/game/mlb/year_%d/month_%s/day_%s/master_scoreboard.json" \
@@ -92,9 +100,13 @@ def date_url(date):
                 % (now.year, now.strftime("%m"), now.strftime("%d"))
     return baseball_url
 
+#process to set date, and convert if need be.
+
 now = datetime.now()
 yesterday = datetime.now() - timedelta(days=1)
 date = raw_input('Today or yesterday? ').lower()
+
+#builds the data structure from the feed
 
 baseball_data = requests.get(date_url(date))
 game_data = baseball_data.json()
