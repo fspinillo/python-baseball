@@ -15,7 +15,7 @@ def game_info():
                 game['venue'],
                 game['status']['status']
             )
-    elif game['status']['status'] == "Final":
+    elif (game['status']['status'] == "Final" or game['status']['status'] == "Game Over"):
         return '%s (%s) vs %s (%s) @ %s %s' % (
                 game['away_team_name'],
                 game['linescore']['r']['away'],
@@ -59,7 +59,7 @@ def team_score():
                 game['status']['b'],
                 game['status']['o']
             )
-    elif game['status']['status'] == "Final":
+    elif (game['status']['status'] == "Final" or game['status']['status'] == "Game Over"):
         return \
         '-------------------------------\n' \
         '%s (%s) vs. %s (%s) @ %s\n' \
